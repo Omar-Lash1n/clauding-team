@@ -42,6 +42,7 @@
     "hasAccount": "Already have an account?",
     "forgotPassword": "Forgot password?",
     "demoMode": "Demo Mode",
+    "loginAs": "Enter as",
     "verifyEmailFirst": "Please verify your email first",
     "nationalIdAutoFill": "Data extracted from National ID",
     "birthDate": "Birth Date",
@@ -55,7 +56,8 @@
       "emailNotVerified": "Email not verified. Please check your inbox.",
       "otpInvalid": "Invalid or expired verification code",
       "signupFailed": "Sign up failed. Please try again.",
-      "profileCreateFailed": "Failed to create profile. Please contact support."
+      "profileCreateFailed": "Failed to create profile. Please contact support.",
+      "generic": "An unexpected error occurred. Please try again."
     }
   },
   "roles": {

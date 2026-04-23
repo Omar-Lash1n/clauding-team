@@ -3,45 +3,47 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { useLocale, useTranslations } from "next-intl";
-import { Eye, EyeOff, CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { LanguageToggle } from "@/components/layout/LanguageToggle";
-import { createClient } from "@/lib/supabase/client";
-import { signupSchema, type SignupInput, otpSchema, type OtpInput } from "@/lib/validators/schemas";
+import { signupCitizenAction } from "./actions";
 import { extractFromNID } from "@/lib/validators/nid";
-import { createProfileAction } from "./actions";
+import { z } from "zod";
+
+// Egyptian phone number
+const egyptianPhone = z
+  .string()
+  .regex(/^\+201[0-9]{9}$/, "Phone must be in format +201XXXXXXXXX");
+
+const signupFormSchema = z.object({
+  full_name: z.string().min(2, "Name must be at least 2 characters"),
+  national_id: z.string().length(14, "National ID must be 14 digits"),
+  phone: egyptianPhone,
+  email: z.string().email("Invalid email address"),
+});
+type SignupFormInput = z.infer<typeof signupFormSchema>;
 
 export default function SignupPage() {
   const t = useTranslations("auth");
   const tc = useTranslations("common");
   const locale = useLocale();
-  const router = useRouter();
 
-  const [step, setStep] = useState<1 | 2>(1);
-  const [showPassword, setShowPassword] = useState(false);
   const [serverError, setServerError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
-  const [pendingEmail, setPendingEmail] = useState<string>("");
   const [nidData, setNidData] = useState<{
     birthDate: string;
     gender: string;
   } | null>(null);
 
-  const step1Form = useForm<SignupInput>({
-    resolver: zodResolver(signupSchema),
-  });
-
-  const step2Form = useForm<OtpInput>({
-    resolver: zodResolver(otpSchema),
+  const form = useForm<SignupFormInput>({
+    resolver: zodResolver(signupFormSchema),
   });
 
   // Watch NID for live extraction
-  const watchedNid = step1Form.watch("national_id");
+  const watchedNid = form.watch("national_id");
   if (watchedNid?.length === 14) {
     const extracted = extractFromNID(watchedNid);
     if (extracted && !nidData) {
@@ -56,142 +58,33 @@ export default function SignupPage() {
     setNidData(null);
   }
 
-  async function onStep1Submit(data: SignupInput) {
+  async function onSubmit(data: SignupFormInput) {
     setLoading(true);
     setServerError(null);
-    const supabase = createClient();
 
-    const { error } = await supabase.auth.signUp({
-      email: data.email,
-      password: data.password,
-      options: {
-        emailRedirectTo: `${window.location.origin}/${locale}/citizen`,
-        data: {
-          full_name: data.full_name,
-          national_id: data.national_id,
-          phone: data.phone,
-        },
+    const extracted = extractFromNID(data.national_id);
+
+    const result = await signupCitizenAction(
+      {
+        full_name: data.full_name,
+        national_id: data.national_id,
+        phone: data.phone,
+        email: data.email,
+        birth_date: extracted?.birthDate.toISOString().split("T")[0] ?? null,
+        gender: extracted?.gender ?? null,
       },
-    });
-
-    if (error) {
-      setServerError(t("errors.signupFailed") + " " + error.message);
-      setLoading(false);
-      return;
-    }
-
-    setPendingEmail(data.email);
-    setStep(2);
-    setLoading(false);
-  }
-
-  async function onStep2Submit(data: OtpInput) {
-    setLoading(true);
-    setServerError(null);
-    const supabase = createClient();
-
-    const { error, data: verifyData } = await supabase.auth.verifyOtp({
-      email: pendingEmail,
-      token: data.token,
-      type: "signup",
-    });
-
-    if (error || !verifyData.user) {
-      setServerError(t("errors.otpInvalid"));
-      setLoading(false);
-      return;
-    }
-
-    // Create profile row via server action
-    const step1Values = step1Form.getValues();
-    const extracted = extractFromNID(step1Values.national_id);
-
-    const result = await createProfileAction({
-      full_name: step1Values.full_name,
-      national_id: step1Values.national_id,
-      phone: step1Values.phone,
-      email: step1Values.email,
-      birth_date: extracted?.birthDate.toISOString().split("T")[0] ?? null,
-      gender: extracted?.gender ?? null,
-    });
-
-    if (!result.success) {
-      setServerError(t("errors.profileCreateFailed"));
-      setLoading(false);
-      return;
-    }
-
-    router.push(`/${locale}/citizen`);
-    router.refresh();
-  }
-
-  if (step === 2) {
-    return (
-      <div className="min-h-screen flex flex-col items-center justify-center bg-[#F0F7FF] px-4 py-8">
-        <div className="absolute top-4 end-4">
-          <LanguageToggle />
-        </div>
-
-        <Link href={`/${locale}`} className="mb-8 text-2xl font-bold text-[#3E7D60] font-rubik">
-          {tc("appName")}
-        </Link>
-
-        <Card className="w-full max-w-sm">
-          <CardHeader>
-            <div className="flex justify-center mb-2">
-              <CheckCircle2 className="h-8 w-8 text-[#3E7D60]" />
-            </div>
-            <CardTitle className="text-xl text-center">{t("otpTitle")}</CardTitle>
-            <CardDescription className="text-center">
-              {t("otpSubtitle")}
-            </CardDescription>
-            <p className="text-center text-sm text-[#3E7D60] font-medium" dir="ltr">
-              {pendingEmail}
-            </p>
-          </CardHeader>
-          <CardContent>
-            <form onSubmit={step2Form.handleSubmit(onStep2Submit)} className="space-y-4">
-              <div className="space-y-1.5">
-                <label className="text-sm font-medium text-[#1C2D5B]">{t("otpCode")}</label>
-                <Input
-                  type="text"
-                  inputMode="numeric"
-                  maxLength={8}
-                  placeholder="12345678"
-                  dir="ltr"
-                  className="text-center text-2xl tracking-widest h-14"
-                  {...step2Form.register("token")}
-                />
-                {step2Form.formState.errors.token && (
-                  <p className="text-xs text-[#C94C4C]">
-                    {step2Form.formState.errors.token.message}
-                  </p>
-                )}
-              </div>
-
-              {serverError && (
-                <div className="rounded-lg bg-[#C94C4C]/10 border border-[#C94C4C]/20 px-4 py-3">
-                  <p className="text-sm text-[#C94C4C]">{serverError}</p>
-                </div>
-              )}
-
-              <Button type="submit" className="w-full" disabled={loading}>
-                {loading ? tc("loading") : t("verifyOtp")}
-              </Button>
-
-              <Button
-                type="button"
-                variant="ghost"
-                className="w-full text-[#3E7D60]"
-                onClick={() => setStep(1)}
-              >
-                {tc("back")}
-              </Button>
-            </form>
-          </CardContent>
-        </Card>
-      </div>
+      locale
     );
+
+    // If the action redirected, we won't reach here.
+    if (result && !result.success) {
+      if (result.error === "email_already_registered") {
+        setServerError(t("errors.signupFailed") + " Email is already registered.");
+      } else {
+        setServerError(t("errors.signupFailed") + " " + (result.error || ""));
+      }
+      setLoading(false);
+    }
   }
 
   return (
@@ -210,12 +103,12 @@ export default function SignupPage() {
           <CardDescription>{t("signupSubtitle")}</CardDescription>
         </CardHeader>
         <CardContent>
-          <form onSubmit={step1Form.handleSubmit(onStep1Submit)} className="space-y-4">
+          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
             <div className="space-y-1.5">
               <label className="text-sm font-medium text-[#1C2D5B]">{t("fullName")}<span className="text-[#C94C4C] ms-0.5">*</span></label>
-              <Input placeholder={t("fullName")} {...step1Form.register("full_name")} />
-              {step1Form.formState.errors.full_name && (
-                <p className="text-xs text-[#C94C4C]">{step1Form.formState.errors.full_name.message}</p>
+              <Input placeholder={t("fullName")} {...form.register("full_name")} />
+              {form.formState.errors.full_name && (
+                <p className="text-xs text-[#C94C4C]">{form.formState.errors.full_name.message}</p>
               )}
             </div>
 
@@ -227,10 +120,10 @@ export default function SignupPage() {
                 maxLength={14}
                 placeholder="30001010188011"
                 dir="ltr"
-                {...step1Form.register("national_id")}
+                {...form.register("national_id")}
               />
-              {step1Form.formState.errors.national_id && (
-                <p className="text-xs text-[#C94C4C]">{step1Form.formState.errors.national_id.message}</p>
+              {form.formState.errors.national_id && (
+                <p className="text-xs text-[#C94C4C]">{form.formState.errors.national_id.message}</p>
               )}
               {nidData && (
                 <div className="rounded-lg bg-[#3E7D60]/10 px-3 py-2 text-xs text-[#3E7D60]">
@@ -246,10 +139,10 @@ export default function SignupPage() {
                 type="tel"
                 placeholder="+201000000000"
                 dir="ltr"
-                {...step1Form.register("phone")}
+                {...form.register("phone")}
               />
-              {step1Form.formState.errors.phone && (
-                <p className="text-xs text-[#C94C4C]">{step1Form.formState.errors.phone.message}</p>
+              {form.formState.errors.phone && (
+                <p className="text-xs text-[#C94C4C]">{form.formState.errors.phone.message}</p>
               )}
             </div>
 
@@ -259,34 +152,10 @@ export default function SignupPage() {
                 type="email"
                 placeholder="you@example.com"
                 dir="ltr"
-                {...step1Form.register("email")}
+                {...form.register("email")}
               />
-              {step1Form.formState.errors.email && (
-                <p className="text-xs text-[#C94C4C]">{step1Form.formState.errors.email.message}</p>
-              )}
-            </div>
-
-            <div className="space-y-1.5">
-              <label className="text-sm font-medium text-[#1C2D5B]">{t("password")}<span className="text-[#C94C4C] ms-0.5">*</span></label>
-              <div className="relative">
-                <Input
-                  type={showPassword ? "text" : "password"}
-                  autoComplete="new-password"
-                  placeholder="••••••••"
-                  dir="ltr"
-                  className="pe-10"
-                  {...step1Form.register("password")}
-                />
-                <button
-                  type="button"
-                  onClick={() => setShowPassword(!showPassword)}
-                  className="absolute end-3 top-1/2 -translate-y-1/2 text-[#1C2D5B]/40"
-                >
-                  {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
-                </button>
-              </div>
-              {step1Form.formState.errors.password && (
-                <p className="text-xs text-[#C94C4C]">{step1Form.formState.errors.password.message}</p>
+              {form.formState.errors.email && (
+                <p className="text-xs text-[#C94C4C]">{form.formState.errors.email.message}</p>
               )}
             </div>
 

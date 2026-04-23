@@ -24,7 +24,11 @@ export function HeatmapLayer({ map, points, options = {} }: HeatmapLayerProps) {
 
     async function addLayer() {
       const L = await import("leaflet");
-      await import("leaflet.heat");
+      // leaflet.heat is a UMD plugin; must load after L is available globally
+      if (typeof window !== "undefined") {
+        (window as any).L = L;
+        await import("leaflet.heat");
+      }
 
       if (cancelled || !map) return;
 
@@ -32,16 +36,18 @@ export function HeatmapLayer({ map, points, options = {} }: HeatmapLayerProps) {
         (layerRef.current as L.Layer).remove();
       }
 
-      const heat = L.heatLayer(points, {
-        radius: 25,
-        blur: 15,
-        maxZoom: 17,
-        max: 5,
-        minOpacity: 0.4,
-        ...options,
-      }).addTo(map);
+      if (typeof (L as any).heatLayer === "function") {
+        const heat = (L as any).heatLayer(points, {
+          radius: 25,
+          blur: 15,
+          maxZoom: 17,
+          max: 5,
+          minOpacity: 0.4,
+          ...options,
+        }).addTo(map);
 
-      layerRef.current = heat;
+        layerRef.current = heat;
+      }
     }
 
     addLayer();

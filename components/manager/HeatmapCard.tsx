@@ -24,7 +24,11 @@ export function HeatmapCard({ points, className }: HeatmapCardProps) {
     if (!mounted || !containerRef.current || mapRef.current) return;
 
     import("leaflet").then(async (L) => {
-      await import("leaflet.heat");
+      // leaflet.heat is a UMD plugin; must load after L is available globally
+      if (typeof window !== "undefined") {
+        (window as any).L = L;
+        await import("leaflet.heat");
+      }
 
       delete (L.Icon.Default.prototype as { _getIconUrl?: unknown })._getIconUrl;
 
@@ -44,13 +48,15 @@ export function HeatmapCard({ points, className }: HeatmapCardProps) {
         p.weight,
       ]);
 
-      L.heatLayer(heatData, {
-        radius: 25,
-        blur: 15,
-        maxZoom: 17,
-        max: 5,
-        minOpacity: 0.4,
-      }).addTo(map);
+      if (typeof (L as any).heatLayer === "function") {
+        (L as any).heatLayer(heatData, {
+          radius: 25,
+          blur: 15,
+          maxZoom: 17,
+          max: 5,
+          minOpacity: 0.4,
+        }).addTo(map);
+      }
 
       mapRef.current = map;
     });

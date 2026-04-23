@@ -29,6 +29,12 @@ export default function LeafletMap({
 
     // Dynamically import leaflet at runtime (client-only)
     import("leaflet").then((L) => {
+      // Guard against React strict mode double-mount
+      if (mapRef.current || !containerRef.current) return;
+
+      // Check if container is already initialized
+      if ((containerRef.current as any)._leaflet_id != null) return;
+
       // Fix default icon 404 bug
       delete (L.Icon.Default.prototype as { _getIconUrl?: unknown })._getIconUrl;
       L.Icon.Default.mergeOptions({

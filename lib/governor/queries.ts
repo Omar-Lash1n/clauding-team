@@ -638,10 +638,13 @@ export async function getGovernorProfile() {
   if (!user) return null;
   const { data, error } = await supabase
     .from("profiles")
-    .select("*, district:districts(*)")
+    .select("*")
     .eq("id", user.id)
-    .single();
-  if (error) throw error;
+    .maybeSingle();
+  if (error) {
+    console.error("[getGovernorProfile]", error.message);
+    return null;
+  }
   return data;
 }
 
