@@ -125,8 +125,318 @@
     "minsLeft": "تبقى {mins} دقيقة"
   },
   "citizen": {},
-  "technician": {},
-  "manager": {},
+  "technician": {
+    "nav": {
+      "dashboard": "لوحة التحكم",
+      "tasks": "المهام",
+      "leave": "الإجازات",
+      "notifications": "الإشعارات"
+    },
+    "dashboard": {
+      "title": "مهامي",
+      "subtitle": "نظرة عامة على أعمالك المسندة"
+    },
+    "kpis": {
+      "activeTasks": "المهام النشطة",
+      "dueToday": "مستحقة اليوم",
+      "completedThisWeek": "مكتملة هذا الأسبوع"
+    },
+    "task": {
+      "title": "تفاصيل المهمة",
+      "reportedBy": "أبلغ عنها",
+      "phone": "الهاتف",
+      "description": "الوصف",
+      "beforePhotos": "صور قبل العمل",
+      "afterPhotos": "صور بعد العمل",
+      "location": "الموقع",
+      "openInMaps": "فتح في الخريطة",
+      "resolutionSubmitted": "تم إرسال الحل",
+      "cost": "التكلفة",
+      "costEgp": "التكلفة (جنيه مصري)",
+      "workDescription": "وصف العمل (اختياري)",
+      "workDescriptionPlaceholder": "صف العمل الذي تم إنجازه...",
+      "maxChars": "الحد الأقصى ٣٠٠ حرف"
+    },
+    "start": {
+      "button": "بدء المهمة",
+      "confirm": "هل أنت متأكد من بدء هذه المهمة؟",
+      "success": "تم بدء المهمة بنجاح",
+      "error": "فشل في بدء المهمة"
+    },
+    "resolve": {
+      "button": "إرسال الحل",
+      "title": "إكمال المهمة",
+      "uploadPhoto": "رفع صورة بعد العمل",
+      "photoRequired": "صورة واحدة مطلوبة بعد العمل",
+      "costRequired": "يجب أن تكون التكلفة صفراً أو أكثر",
+      "success": "تم حل المهمة بنجاح",
+      "error": "فشل في حل المهمة"
+    },
+    "leave": {
+      "title": "طلبات الإجازة",
+      "requestNew": "طلب إجازة",
+      "noRequests": "لا توجد طلبات إجازة",
+      "startDate": "تاريخ البدء",
+      "endDate": "تاريخ الانتهاء",
+      "reason": "السبب",
+      "reasonPlaceholder": "اذكر سبب طلب الإجازة...",
+      "coveredBy": "يغطيه {name} — {specialty}",
+      "pending": "قيد الانتظار",
+      "approved": "تمت الموافقة",
+      "rejected": "مرفوض"
+    },
+    "requestLeave": {
+      "success": "تم إرسال طلب الإجازة",
+      "error": "فشل في إرسال طلب الإجازة"
+    },
+    "cancelRequest": {
+      "button": "إلغاء الطلب",
+      "success": "تم إلغاء طلب الإجازة",
+      "error": "فشل في إلغاء طلب الإجازة"
+    },
+    "urgent": {
+      "title": "مهام عاجلة",
+      "subtitle": "مهام متبقي عليها أقل من ٦٠ دقيقة"
+    },
+    "breached": {
+      "title": "تجاوز الموعد المحدد",
+      "subtitle": "هذه المهام تجاوزت الموعد النهائي",
+      "overdueBy": "متأخر بمقدار {time}"
+    },
+    "onLeaveBanner": {
+      "title": "أنت حالياً في إجازة",
+      "subtitle": "تواصل مع مديرك لأي استفسار"
+    },
+    "substituteBadge": {
+      "label": "مهمة بديل",
+      "tooltip": "أنت تغطي حالياً عن {name} حتى {date}"
+    },
+    "emptyState": {
+      "title": "لا توجد مهام مسندة",
+      "subtitle": "خذ قسطاً من الراحة."
+    },
+    "sections": {
+      "assigned": "المهام المُسنَدة",
+      "inProgress": "قيد التنفيذ",
+      "active": "المهام النشطة"
+    }
+  },
+  "manager": {
+    "nav": {
+      "dashboard": "لوحة التحكم",
+      "queue": "طابور الموافقات",
+      "reports": "غرفة العمليات",
+      "technicians": "الفنيون",
+      "leaveRequests": "طلبات الإجازة",
+      "disputes": "النزاعات",
+      "crossDistrict": "عبر الأقسام",
+      "notifications": "الإشعارات",
+      "map": "الخريطة"
+    },
+    "dashboard": {
+      "title": "لوحة تحكم القسم",
+      "subtitle": "نظرة عامة على عمليات قسمك",
+      "awaitingApproval": "بانتظار الموافقة",
+      "needsAttention": "يحتاج انتباهك",
+      "heatmapTitle": "الخريطة الحرارية للقسم",
+      "heatmapLegend": "كثافة البلاغات في القسم"
+    },
+    "kpis": {
+      "submitted": "بانتظار الموافقة",
+      "active": "بلاغات نشطة",
+      "completedToday": "مكتملة اليوم",
+      "escalated": "مُصعَّدة",
+      "avgResolution": "متوسط الحل (ساعات)",
+      "totalSpent": "إجمالي الإنفاق (ج.م)"
+    },
+    "queue": {
+      "title": "طابور الموافقات",
+      "subtitle": "مراجعة البلاغات المقدمة والموافقة عليها",
+      "empty": "لا توجد بلاغات بانتظار الموافقة",
+      "duplicateIndicator": "احتمال وجود بلاغ مشابه قريب"
+    },
+    "approve": {
+      "button": "موافقة",
+      "success": "تمت الموافقة على البلاغ بنجاح",
+      "error": "فشل في الموافقة على البلاغ"
+    },
+    "reject": {
+      "button": "رفض",
+      "success": "تم رفض البلاغ",
+      "error": "فشل في رفض البلاغ"
+    },
+    "approvalDialog": {
+      "title": "الموافقة على البلاغ",
+      "makePublic": "تعيين كبلاغ عام",
+      "overrideCategory": "تغيير الفئة",
+      "overridePriority": "تغيير الأولوية",
+      "confirmApproval": "تأكيد الموافقة"
+    },
+    "rejectDialog": {
+      "title": "رفض البلاغ",
+      "reason": "سبب الرفض",
+      "reasonPlaceholder": "اشرح سبب رفض هذا البلاغ...",
+      "reasonMinChars": "الحد الأدنى ٥ أحرف",
+      "confirmRejection": "تأكيد الرفض"
+    },
+    "assign": {
+      "title": "تعيين فني",
+      "subtitle": "اختر فنياً لهذا البلاغ",
+      "success": "تم تعيين الفني بنجاح",
+      "error": "فشل في تعيين الفني",
+      "confirmMismatch": "تأكيد التعيين رغم اختلاف التخصص"
+    },
+    "recommendedPanel": {
+      "title": "المُوصى بهم",
+      "workload": "عبء العمل",
+      "activeTasks": "المهام النشطة",
+      "assignButton": "تعيين"
+    },
+    "otherTechnicians": {
+      "title": "فنيون آخرون",
+      "showAll": "عرض جميع الفنيين"
+    },
+    "specialtyMismatch": {
+      "warning": "اختلاف التخصص",
+      "detail": "تخصص الفني هو {techSpecialty}، لكن الفئة تتطلب {required}",
+      "confirmTitle": "تحذير: اختلاف التخصص",
+      "confirmMessage": "هل أنت متأكد من تعيين فني بتخصص مختلف؟ سيتم تسجيل ذلك لأغراض المراجعة.",
+      "confirmButton": "تعيين على أي حال"
+    },
+    "crossDistrictBanner": {
+      "label": "صلاحية عبر الأقسام نشطة",
+      "detail": "أنت تعمل بصلاحية عبر الأقسام صالحة حتى {time}"
+    },
+    "situationRoom": {
+      "title": "غرفة العمليات",
+      "subtitle": "جميع البلاغات في قسمك"
+    },
+    "filters": {
+      "status": "الحالة",
+      "priority": "الأولوية",
+      "category": "الفئة",
+      "technician": "الفني",
+      "dateRange": "الفترة الزمنية",
+      "from": "من",
+      "to": "إلى",
+      "clearFilters": "مسح الفلاتر",
+      "activeFilters": "{count} فلاتر نشطة"
+    },
+    "search": {
+      "placeholder": "البحث بالوصف أو العنوان..."
+    },
+    "technicians": {
+      "title": "الفنيون",
+      "subtitle": "فريقك الفني في القسم",
+      "workloadBar": "عبء العمل",
+      "activeTasks": "المهام النشطة",
+      "viewTasks": "عرض المهام",
+      "onLeave": "في إجازة",
+      "substitute": "البديل: {name}",
+      "daysRemaining": "{days} أيام متبقية"
+    },
+    "workload": {
+      "score": "النقاط",
+      "tasks": "المهام"
+    },
+    "leaveRequests": {
+      "title": "طلبات الإجازة",
+      "subtitle": "إدارة طلبات إجازة الفنيين",
+      "pendingSection": "الطلبات المعلقة",
+      "recentSection": "القرارات الأخيرة",
+      "empty": "لا توجد طلبات إجازة معلقة"
+    },
+    "pendingLeaves": {
+      "dateRange": "من {start} إلى {end}",
+      "confirmApprove": "سيتم تعيين بديل تلقائياً لعدد {count} مهمة نشطة لدى {name}. هل تريد المتابعة؟",
+      "noSubstitute": "تمت الموافقة على الإجازة ولكن لا يوجد بديل متاح — ستبقى المهام مع الفني الأصلي حتى تتدخل."
+    },
+    "approveLeave": {
+      "button": "الموافقة على الإجازة",
+      "success": "تمت الموافقة على الإجازة. البديل: {name}",
+      "successNoSub": "تمت الموافقة على الإجازة (لا يوجد بديل متاح)",
+      "error": "فشل في الموافقة على الإجازة"
+    },
+    "rejectLeave": {
+      "button": "رفض الإجازة",
+      "success": "تم رفض طلب الإجازة",
+      "error": "فشل في رفض الإجازة"
+    },
+    "disputes": {
+      "title": "النزاعات",
+      "subtitle": "حل نزاعات المواطنين",
+      "empty": "لا توجد نزاعات نشطة",
+      "rating": "التقييم",
+      "citizenComment": "تعليق المواطن"
+    },
+    "disputeDetail": {
+      "title": "تفاصيل النزاع",
+      "originalTechnician": "الفني الأصلي",
+      "citizenFeedback": "ملاحظات المواطن",
+      "beforeAfter": "مقارنة قبل وبعد"
+    },
+    "assignNew": {
+      "button": "تعيين فني جديد",
+      "title": "تعيين فني جديد",
+      "success": "تم تعيين فني جديد",
+      "error": "فشل في تعيين فني جديد"
+    },
+    "sameTechBack": {
+      "button": "إعادة نفس الفني",
+      "title": "إعادة المهمة لنفس الفني",
+      "notesLabel": "ملاحظات المدير",
+      "notesPlaceholder": "أضف تعليمات للفني...",
+      "notesMinChars": "الحد الأدنى ٥ أحرف",
+      "success": "تمت إعادة المهمة لنفس الفني",
+      "error": "فشل في إعادة التعيين"
+    },
+    "rejectDispute": {
+      "button": "رفض النزاع",
+      "title": "رفض هذا النزاع",
+      "warning": "سيؤدي هذا إلى أرشفة البلاغ نهائياً.",
+      "notesLabel": "ملاحظات الرفض",
+      "notesPlaceholder": "اشرح سبب رفض هذا النزاع...",
+      "success": "تم رفض النزاع وأرشفة البلاغ",
+      "error": "فشل في رفض النزاع"
+    },
+    "crossDistrict": {
+      "title": "الوصول عبر الأقسام",
+      "subtitle": "طلب صلاحية للعمل في أقسام أخرى"
+    },
+    "newRequest": {
+      "targetDistrict": "القسم المستهدف",
+      "reason": "السبب",
+      "reasonPlaceholder": "اشرح سبب الحاجة للوصول عبر الأقسام...",
+      "reasonMinChars": "الحد الأدنى ٢٠ حرفاً",
+      "submit": "إرسال الطلب",
+      "success": "تم إرسال طلب الوصول عبر الأقسام",
+      "error": "فشل في إرسال الطلب"
+    },
+    "revoke": {
+      "button": "إلغاء",
+      "success": "تم إلغاء الصلاحية",
+      "error": "فشل في إلغاء الصلاحية"
+    },
+    "errors": {
+      "invalidTransition": "لا يُسمح بهذا التحويل في الحالة",
+      "districtMismatch": "الفني ليس في نفس القسم",
+      "technicianOnLeave": "هذا الفني حالياً في إجازة",
+      "noPermission": "ليس لديك صلاحية لهذا الإجراء",
+      "notFound": "السجل غير موجود"
+    },
+    "reportDetail": {
+      "title": "تفاصيل البلاغ",
+      "reporter": "المُبلِّغ",
+      "technician": "الفني المُعيَّن",
+      "timeline": "الجدول الزمني",
+      "actions": "الإجراءات",
+      "markPublic": "تعيين كعام",
+      "unmarkPublic": "إزالة من العام",
+      "assignTech": "تعيين فني",
+      "reassign": "إعادة التعيين",
+      "nidLast4": "آخر ٤ أرقام من الرقم القومي"
+    }
+  },
   "governor": {},
   "errors": {
     "generic": "حدث خطأ غير متوقع. يرجى المحاولة مرة أخرى.",
