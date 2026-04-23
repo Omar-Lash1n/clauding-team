@@ -124,6 +124,7 @@
     "hoursLeft": "تبقى {hours} ساعة و{mins} دقيقة",
     "minsLeft": "تبقى {mins} دقيقة"
   },
+
   "citizen": {
     "nav": {
       "dashboard": "لوحة التحكم",
@@ -250,6 +251,174 @@
       "disputeFailed": "فشل تقديم الاعتراض. يرجى المحاولة مرة أخرى.",
       "uploadFailed": "فشل رفع الصورة. يرجى المحاولة مرة أخرى.",
       "locationUnavailable": "الموقع الجغرافي غير متاح."
+    }
+  },
+  "governor": {
+    "nav": {
+      "dashboard": "لوحة القيادة",
+      "situation": "غرفة العمليات",
+      "analytics": "التحليلات",
+      "categories": "الفئات",
+      "crossDistrict": "عبر الأقسام",
+      "dailySummary": "الملخص اليومي",
+      "budget": "الميزانية",
+      "notifications": "الإشعارات",
+      "reports": "البلاغات",
+      "settings": "الإعدادات",
+      "profile": "الملف الشخصي"
+    },
+    "sidebar": {
+      "city": "المدينة: أسوان"
+    },
+    "dashboard": {
+      "greetingMorning": "صباح الخير يا سيادة المحافظ {name}",
+      "greetingAfternoon": "مساء الخير يا سيادة المحافظ {name}",
+      "greetingEvening": "مساء الخير يا سيادة المحافظ {name}",
+      "cityScore": "{score}٪",
+      "cityScoreLabel": "نسبة الالتزام بالـ SLA (٧ أيام)",
+      "summarySectionTitle": "الملخص التنفيذي اليومي",
+      "summaryNotYet": "سيتم إعداد الملخص في الساعة ٨:٠٠ صباحاً",
+      "summaryYesterday": "ملخص الأمس",
+      "kpis": {
+        "totalReports": "بلاغات اليوم",
+        "active": "نشط",
+        "resolved": "محلول",
+        "escalated": "مُصعّد",
+        "criticalUnassigned": "حرج غير مُسند",
+        "avgResolution": "متوسط الحل (٧ أيام)"
+      },
+      "heatmapTitle": "الخريطة الحرارية للمدينة",
+      "rankingTitle": "ترتيب أداء الأقسام"
+    },
+    "ranking": {
+      "columns": {
+        "rank": "#",
+        "district": "القسم",
+        "active": "نشط",
+        "avgResolution": "متوسط الحل",
+        "escalations": "التصعيدات",
+        "spent": "الإنفاق (الشهر)"
+      }
+    },
+    "heatmap": {
+      "filterPriority": "الأولوية",
+      "filterStatus": "الحالة",
+      "filterCategory": "الفئة",
+      "resultCount": "عرض {count} بلاغ في {districts} أقسام"
+    },
+    "situationRoom": {
+      "title": "غرفة العمليات",
+      "filterDistrict": "القسم",
+      "empty": "لا توجد بلاغات تطابق الفلاتر المحددة",
+      "columns": {
+        "status": "الحالة",
+        "priority": "الأولوية",
+        "district": "القسم",
+        "category": "الفئة",
+        "reporter": "المُبلّغ",
+        "technician": "الفني",
+        "submitted": "تاريخ التقديم",
+        "sla": "SLA",
+        "actions": "إجراءات"
+      }
+    },
+    "analytics": {
+      "title": "التحليلات",
+      "timeRange7": "٧ أيام",
+      "timeRange30": "٣٠ يوم",
+      "timeRange90": "٩٠ يوم",
+      "resolutionTimeTitle": "وقت الحل حسب القسم",
+      "topCategoriesTitle": "أعلى الفئات",
+      "escalationTrendTitle": "اتجاه التصعيدات",
+      "completionRateTitle": "معدل الإنجاز حسب القسم",
+      "costByCategoryTitle": "التكلفة حسب الفئة"
+    },
+    "categories": {
+      "title": "إدارة الفئات",
+      "addButton": "إضافة فئة",
+      "editTitle": "تعديل الفئة",
+      "createTitle": "إضافة فئة جديدة",
+      "fields": {
+        "nameEn": "الاسم (إنجليزي)",
+        "nameAr": "الاسم (عربي)",
+        "icon": "الأيقونة",
+        "specialty": "التخصص الافتراضي",
+        "priority": "الأولوية الافتراضية",
+        "active": "مفعّل"
+      },
+      "deactivateConfirm": "هل أنت متأكد من تعطيل هذه الفئة؟",
+      "activateSuccess": "تم تفعيل الفئة",
+      "deactivateSuccess": "تم تعطيل الفئة"
+    },
+    "crossDistrict": {
+      "title": "طلبات الوصول عبر الأقسام",
+      "pending": "الطلبات المعلقة",
+      "history": "سجل القرارات",
+      "approve": "موافقة",
+      "reject": "رفض",
+      "approvedUntil": "مُوافق عليه حتى {date}",
+      "rejectionNote": "ملاحظة الرفض (اختياري)",
+      "noPending": "لا توجد طلبات معلقة",
+      "requestingDm": "المدير الطالب",
+      "targetDistrict": "القسم المستهدف",
+      "reason": "السبب",
+      "requestedAt": "تاريخ الطلب"
+    },
+    "dailySummary": {
+      "todayTitle": "ملخص اليوم",
+      "yesterdayTitle": "ملخص الأمس",
+      "archiveTitle": "أرشيف الملخصات",
+      "newReports": "بلاغات جديدة",
+      "resolved": "تم الحل",
+      "topDelay": "أقسام بأعلى تأخير",
+      "escalations": "تصعيدات نشطة",
+      "perDistrict": "حسب القسم",
+      "perCategory": "حسب الفئة",
+      "viewArchive": "عرض جميع الملخصات",
+      "backToArchive": "العودة للأرشيف",
+      "noSummary": "لا يوجد ملخص لهذا التاريخ"
+    },
+    "budget": {
+      "title": "الميزانية والمصروفات",
+      "tabDistrict": "حسب القسم",
+      "tabCategory": "حسب الفئة",
+      "tabMonth": "حسب الشهر",
+      "thisMonth": "هذا الشهر",
+      "thisYear": "هذا العام",
+      "totalCity": "إجمالي إنفاق المدينة",
+      "topCategories": "أعلى الفئات",
+      "avgPerReport": "المتوسط / بلاغ",
+      "shareOfCity": "نسبة من المدينة"
+    },
+    "notifications": {
+      "title": "الإشعارات",
+      "empty": "لا توجد إشعارات",
+      "markAllRead": "تعليم الكل كمقروء"
+    },
+    "profile": {
+      "title": "الملف الشخصي للمحافظ",
+      "role": "محافظ أسوان",
+      "appointed": "تاريخ التعيين",
+      "employeeId": "الرقم الوظيفي",
+      "email": "البريد الإلكتروني",
+      "phone": "الهاتف"
+    },
+    "actions": {
+      "override": {
+        "publicOn": "جعله عام",
+        "publicOff": "جعله خاص"
+      },
+      "addNote": "إضافة ملاحظة المحافظ",
+      "noteSaved": "تم إرسال الملاحظة لمدير القسم",
+      "viewReport": "عرض البلاغ"
+    },
+    "errors": {
+      "summaryFailed": "فشل تحميل الملخص",
+      "approvalFailed": "فشل معالجة الموافقة",
+      "rejectionFailed": "فشل معالجة الرفض",
+      "categorySaveFailed": "فشل حفظ الفئة",
+      "overrideFailed": "فشل تحديث حالة العرض العام",
+      "noteFailed": "فشل إرسال الملاحظة"
     }
   },
   "technician": {

@@ -124,6 +124,7 @@
     "hoursLeft": "{hours}h {mins}m left",
     "minsLeft": "{mins}m left"
   },
+
   "citizen": {
     "nav": {
       "dashboard": "Dashboard",
@@ -250,6 +251,174 @@
       "disputeFailed": "Failed to file dispute. Please try again.",
       "uploadFailed": "Failed to upload photo. Please try again.",
       "locationUnavailable": "Location unavailable."
+    }
+  },
+  "governor": {
+    "nav": {
+      "dashboard": "Dashboard",
+      "situation": "Situation Room",
+      "analytics": "Analytics",
+      "categories": "Categories",
+      "crossDistrict": "Cross-District",
+      "dailySummary": "Daily Summary",
+      "budget": "Budget",
+      "notifications": "Notifications",
+      "reports": "Reports",
+      "settings": "Settings",
+      "profile": "Profile"
+    },
+    "sidebar": {
+      "city": "City: Aswan"
+    },
+    "dashboard": {
+      "greetingMorning": "Good morning, Governor {name}",
+      "greetingAfternoon": "Good afternoon, Governor {name}",
+      "greetingEvening": "Good evening, Governor {name}",
+      "cityScore": "{score}%",
+      "cityScoreLabel": "City SLA Score (7d)",
+      "summarySectionTitle": "Daily Executive Summary",
+      "summaryNotYet": "Summary will be generated at 8:00 AM",
+      "summaryYesterday": "Yesterday's Summary",
+      "kpis": {
+        "totalReports": "Reports Today",
+        "active": "Active",
+        "resolved": "Resolved",
+        "escalated": "Escalated",
+        "criticalUnassigned": "Critical Unassigned",
+        "avgResolution": "Avg Resolution (7d)"
+      },
+      "heatmapTitle": "City Heatmap",
+      "rankingTitle": "District Performance Ranking"
+    },
+    "ranking": {
+      "columns": {
+        "rank": "#",
+        "district": "District",
+        "active": "Active",
+        "avgResolution": "Avg Resolution",
+        "escalations": "Escalations",
+        "spent": "Spent (Month)"
+      }
+    },
+    "heatmap": {
+      "filterPriority": "Priority",
+      "filterStatus": "Status",
+      "filterCategory": "Category",
+      "resultCount": "Showing {count} reports across {districts} districts"
+    },
+    "situationRoom": {
+      "title": "Situation Room",
+      "filterDistrict": "District",
+      "empty": "No reports match the selected filters",
+      "columns": {
+        "status": "Status",
+        "priority": "Priority",
+        "district": "District",
+        "category": "Category",
+        "reporter": "Reporter",
+        "technician": "Technician",
+        "submitted": "Submitted",
+        "sla": "SLA",
+        "actions": "Actions"
+      }
+    },
+    "analytics": {
+      "title": "Analytics",
+      "timeRange7": "7 days",
+      "timeRange30": "30 days",
+      "timeRange90": "90 days",
+      "resolutionTimeTitle": "Resolution Time by District",
+      "topCategoriesTitle": "Top Categories",
+      "escalationTrendTitle": "Escalation Trend",
+      "completionRateTitle": "Completion Rate by District",
+      "costByCategoryTitle": "Cost by Category"
+    },
+    "categories": {
+      "title": "Categories Management",
+      "addButton": "Add Category",
+      "editTitle": "Edit Category",
+      "createTitle": "Add New Category",
+      "fields": {
+        "nameEn": "Name (English)",
+        "nameAr": "Name (Arabic)",
+        "icon": "Icon",
+        "specialty": "Default Specialty",
+        "priority": "Default Priority",
+        "active": "Active"
+      },
+      "deactivateConfirm": "Are you sure you want to deactivate this category?",
+      "activateSuccess": "Category activated",
+      "deactivateSuccess": "Category deactivated"
+    },
+    "crossDistrict": {
+      "title": "Cross-District Approvals",
+      "pending": "Pending Requests",
+      "history": "Decision History",
+      "approve": "Approve",
+      "reject": "Reject",
+      "approvedUntil": "Approved until {date}",
+      "rejectionNote": "Rejection Note (optional)",
+      "noPending": "No pending requests",
+      "requestingDm": "Requesting Manager",
+      "targetDistrict": "Target District",
+      "reason": "Reason",
+      "requestedAt": "Requested"
+    },
+    "dailySummary": {
+      "todayTitle": "Today's Summary",
+      "yesterdayTitle": "Yesterday's Summary",
+      "archiveTitle": "Summary Archive",
+      "newReports": "New Reports",
+      "resolved": "Resolved",
+      "topDelay": "Top Delay Districts",
+      "escalations": "Active Escalations",
+      "perDistrict": "Per District",
+      "perCategory": "Per Category",
+      "viewArchive": "View All Summaries",
+      "backToArchive": "Back to Archive",
+      "noSummary": "No summary available for this date"
+    },
+    "budget": {
+      "title": "Budget & Expenditure",
+      "tabDistrict": "By District",
+      "tabCategory": "By Category",
+      "tabMonth": "By Month",
+      "thisMonth": "This Month",
+      "thisYear": "This Year",
+      "totalCity": "Total City Expenditure",
+      "topCategories": "Top Categories",
+      "avgPerReport": "Avg / Report",
+      "shareOfCity": "Share of City"
+    },
+    "notifications": {
+      "title": "Notifications",
+      "empty": "No notifications",
+      "markAllRead": "Mark all as read"
+    },
+    "profile": {
+      "title": "Governor Profile",
+      "role": "Governor of Aswan",
+      "appointed": "Appointed",
+      "employeeId": "Employee ID",
+      "email": "Email",
+      "phone": "Phone"
+    },
+    "actions": {
+      "override": {
+        "publicOn": "Set as Public",
+        "publicOff": "Set as Private"
+      },
+      "addNote": "Add Governor Note",
+      "noteSaved": "Note sent to District Manager",
+      "viewReport": "View Report"
+    },
+    "errors": {
+      "summaryFailed": "Failed to load summary",
+      "approvalFailed": "Failed to process approval",
+      "rejectionFailed": "Failed to process rejection",
+      "categorySaveFailed": "Failed to save category",
+      "overrideFailed": "Failed to update public flag",
+      "noteFailed": "Failed to send note"
     }
   },
   "technician": {
