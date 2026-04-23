@@ -37,6 +37,20 @@ export default async function ReportDetailPage({ params }: ReportDetailPageProps
   const beforePhotos = photos.filter((p) => p.photo_type === "before");
   const afterPhotos = photos.filter((p) => p.photo_type === "after");
 
+  const pathsToSign = photos.map(p => p.storage_path);
+  let signedUrls: Record<string, string> = {};
+  if (pathsToSign.length > 0) {
+    const { data: signedData } = await supabase.storage.from("reports").createSignedUrls(pathsToSign, 3600);
+    if (signedData) {
+      signedUrls = signedData.reduce((acc, curr) => {
+        if (!curr.error && curr.signedUrl) {
+          acc[curr.path] = curr.signedUrl;
+        }
+        return acc;
+      }, {} as Record<string, string>);
+    }
+  }
+
   const categoryName = locale === "ar" ? (category?.name_ar || category?.name_en || "") : (category?.name_en || "");
   const statusStyle = getStatusStyle(report.status);
   const priorityStyle = getPriorityStyle(report.priority);
@@ -125,7 +139,7 @@ export default async function ReportDetailPage({ params }: ReportDetailPageProps
           <h3 className="text-sm font-semibold text-navy mb-3">
             {locale === "ar" ? "صور قبل العمل" : "Before Photos"}
           </h3>
-          <PhotoGallery photos={beforePhotos} />
+          <PhotoGallery photos={beforePhotos} signedUrls={signedUrls} />
         </div>
       )}
       {afterPhotos.length > 0 && (
@@ -133,7 +147,7 @@ export default async function ReportDetailPage({ params }: ReportDetailPageProps
           <h3 className="text-sm font-semibold text-navy mb-3">
             {locale === "ar" ? "صور بعد العمل" : "After Photos"}
           </h3>
-          <PhotoGallery photos={afterPhotos} />
+          <PhotoGallery photos={afterPhotos} signedUrls={signedUrls} />
         </div>
       )}
 

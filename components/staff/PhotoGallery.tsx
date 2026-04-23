@@ -1,22 +1,27 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { cn } from "@/lib/utils/cn";
 
 interface PhotoGalleryProps {
   photos: { id: string; storage_path: string; photo_type: string }[];
+  signedUrls?: Record<string, string>;
   supabaseUrl?: string;
   className?: string;
 }
 
-export function PhotoGallery({ photos, className }: PhotoGalleryProps) {
+export function PhotoGallery({ photos, signedUrls, className }: PhotoGalleryProps) {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
 
   if (photos.length === 0) return null;
 
   function getUrl(path: string) {
-    return `${supabaseUrl}/storage/v1/object/public/report-photos/${path}`;
+    if (signedUrls && signedUrls[path]) {
+      return signedUrls[path];
+    }
+    return `${supabaseUrl}/storage/v1/object/public/reports/${path}`;
   }
 
   return (
@@ -28,12 +33,12 @@ export function PhotoGallery({ photos, className }: PhotoGalleryProps) {
             onClick={() => setSelectedIndex(index)}
             className="group relative aspect-square overflow-hidden rounded-xl border border-border-neutral bg-gray-50 transition-shadow hover:shadow-card-hover focus:outline-none focus:ring-2 focus:ring-nile-green"
           >
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
+            <Image
               src={getUrl(photo.storage_path)}
               alt={`Photo ${index + 1}`}
-              className="h-full w-full object-cover transition-transform group-hover:scale-105"
-              loading="lazy"
+              fill
+              sizes="(max-width: 640px) 50vw, 33vw"
+              className="object-cover transition-transform group-hover:scale-105"
             />
           </button>
         ))}
@@ -48,15 +53,17 @@ export function PhotoGallery({ photos, className }: PhotoGalleryProps) {
           aria-modal="true"
         >
           <div
-            className="relative max-h-[90vh] max-w-[90vw]"
+            className="relative flex items-center justify-center h-[90vh] w-[90vw]"
             onClick={(e) => e.stopPropagation()}
           >
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src={getUrl(photos[selectedIndex].storage_path)}
-              alt={`Photo ${selectedIndex + 1}`}
-              className="max-h-[85vh] max-w-[85vw] rounded-lg object-contain"
-            />
+            <div className="relative w-full h-full">
+              <Image
+                src={getUrl(photos[selectedIndex].storage_path)}
+                alt={`Photo ${selectedIndex + 1}`}
+                fill
+                className="object-contain"
+              />
+            </div>
 
             <button
               onClick={() => setSelectedIndex(null)}

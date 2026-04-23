@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
 import { Check, X, Eye, AlertCircle } from "lucide-react";
 import { cn } from "@/lib/utils/cn";
@@ -95,9 +96,14 @@ export function QueueItem({
       <div className="flex items-center gap-3 p-4">
         {/* Photo thumbnail */}
         {photoUrl && (
-          <div className="h-14 w-14 shrink-0 overflow-hidden rounded-lg border border-border-neutral">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={photoUrl} alt="" className="h-full w-full object-cover" loading="lazy" />
+          <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-lg border border-border-neutral bg-gray-50">
+            <Image 
+              src={photoUrl} 
+              alt="" 
+              fill
+              sizes="56px"
+              className="object-cover" 
+            />
           </div>
         )}
 

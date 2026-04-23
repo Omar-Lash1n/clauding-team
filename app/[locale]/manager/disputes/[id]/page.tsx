@@ -41,6 +41,20 @@ export default async function DisputeDetailPage({ params }: DisputeDetailPagePro
   const beforePhotos = photos.filter((p) => p.photo_type === "before");
   const afterPhotos = photos.filter((p) => p.photo_type === "after");
 
+  const pathsToSign = photos.map(p => p.storage_path);
+  let signedUrls: Record<string, string> = {};
+  if (pathsToSign.length > 0) {
+    const { data: signedData } = await supabase.storage.from("reports").createSignedUrls(pathsToSign, 3600);
+    if (signedData) {
+      signedUrls = signedData.reduce((acc, curr) => {
+        if (!curr.error && curr.signedUrl) {
+          acc[curr.path] = curr.signedUrl;
+        }
+        return acc;
+      }, {} as Record<string, string>);
+    }
+  }
+
   const catName = report?.category
     ? (locale === "ar" ? report.category.name_ar : report.category.name_en) || ""
     : "";
@@ -89,11 +103,11 @@ export default async function DisputeDetailPage({ params }: DisputeDetailPagePro
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
             <p className="text-xs text-navy/50 mb-2">{locale === "ar" ? "قبل" : "Before"}</p>
-            <PhotoGallery photos={beforePhotos} />
+            <PhotoGallery photos={beforePhotos} signedUrls={signedUrls} />
           </div>
           <div>
             <p className="text-xs text-navy/50 mb-2">{locale === "ar" ? "بعد" : "After"}</p>
-            <PhotoGallery photos={afterPhotos} />
+            <PhotoGallery photos={afterPhotos} signedUrls={signedUrls} />
           </div>
         </div>
       </div>

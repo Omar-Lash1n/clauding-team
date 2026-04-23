@@ -44,8 +44,26 @@ export default async function QueuePage({ params }: QueuePageProps) {
     }
   }
 
-  function getPhotoUrl(path: string) {
-    return `${supabaseUrl}/storage/v1/object/public/report-photos/${path}`;
+  // Generate signed URLs for all first photos in the queue
+  const pathsToSign = queue
+    .map(report => {
+      const photos = (report.photos || []) as { id: string; storage_path: string; photo_type: string }[];
+      const firstPhoto = photos.find((p) => p.photo_type === "before");
+      return firstPhoto?.storage_path;
+    })
+    .filter(Boolean) as string[];
+
+  let signedUrls: Record<string, string> = {};
+  if (pathsToSign.length > 0) {
+    const { data: signedData } = await supabase.storage.from("reports").createSignedUrls(pathsToSign, 3600);
+    if (signedData) {
+      signedUrls = signedData.reduce((acc, curr) => {
+        if (!curr.error && curr.signedUrl) {
+          acc[curr.path] = curr.signedUrl;
+        }
+        return acc;
+      }, {} as Record<string, string>);
+    }
   }
 
   function getCategoryName(report: typeof queue[0]) {
@@ -82,6 +100,7 @@ export default async function QueuePage({ params }: QueuePageProps) {
           {queue.map((report) => {
             const photos = (report.photos || []) as { id: string; storage_path: string; photo_type: string }[];
             const firstPhoto = photos.find((p) => p.photo_type === "before");
+            const photoUrl = firstPhoto ? signedUrls[firstPhoto.storage_path] : null;
 
             return (
               <QueueItem
@@ -92,7 +111,7 @@ export default async function QueuePage({ params }: QueuePageProps) {
                 addressDescription={report.address_description}
                 reporterName={getReporterName(report)}
                 description={report.description}
-                photoUrl={firstPhoto ? getPhotoUrl(firstPhoto.storage_path) : null}
+                photoUrl={photoUrl}
                 hasDuplicate={duplicateMap.get(report.id) ?? false}
               />
             );
