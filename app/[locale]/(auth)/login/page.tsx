@@ -124,8 +124,8 @@ export default function LoginPage() {
                 <Input
                   type="text"
                   inputMode="numeric"
-                  maxLength={6}
-                  placeholder="123456"
+                  maxLength={8}
+                  placeholder="12345678"
                   dir="ltr"
                   className="text-center text-2xl tracking-widest h-14"
                   {...step2Form.register("token")}

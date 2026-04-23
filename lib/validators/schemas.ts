@@ -32,8 +32,9 @@ export type LoginInput = z.infer<typeof loginSchema>;
 export const otpSchema = z.object({
   token: z
     .string()
-    .length(6, "OTP must be exactly 6 digits")
-    .regex(/^\d{6}$/, "OTP must contain only digits"),
+    .min(6, "OTP must be at least 6 digits")
+    .max(8, "OTP cannot exceed 8 digits")
+    .regex(/^\d{6,8}$/, "OTP must contain only digits"),
 });
 
 export type OtpInput = z.infer<typeof otpSchema>;
