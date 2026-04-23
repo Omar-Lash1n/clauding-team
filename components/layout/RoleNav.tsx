@@ -35,7 +35,6 @@ function getNavItems(role: UserRole, locale: string): NavItem[] {
     case "technician":
       return [
         { labelKey: "technician.nav.dashboard", href: `${base}/technician`, icon: LayoutDashboard },
-        { labelKey: "technician.nav.tasks", href: `${base}/technician/tasks`, icon: Wrench },
         { labelKey: "technician.nav.leave", href: `${base}/technician/leave`, icon: CalendarOff },
         { labelKey: "technician.nav.notifications", href: `${base}/technician/notifications`, icon: Bell },
       ];
