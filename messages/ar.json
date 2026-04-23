@@ -1,0 +1,137 @@
+{
+  "common": {
+    "appName": "عيون النيل",
+    "login": "تسجيل الدخول",
+    "signup": "إنشاء حساب",
+    "logout": "تسجيل الخروج",
+    "submit": "إرسال",
+    "cancel": "إلغاء",
+    "confirm": "تأكيد",
+    "save": "حفظ",
+    "back": "رجوع",
+    "next": "التالي",
+    "loading": "جاري التحميل...",
+    "error": "خطأ",
+    "success": "نجاح",
+    "requiredField": "هذا الحقل مطلوب",
+    "search": "بحث",
+    "filter": "تصفية",
+    "all": "الكل",
+    "none": "لا شيء",
+    "yes": "نعم",
+    "no": "لا"
+  },
+  "auth": {
+    "email": "البريد الإلكتروني",
+    "password": "كلمة المرور",
+    "fullName": "الاسم الكامل",
+    "nationalId": "الرقم القومي",
+    "phone": "رقم الهاتف",
+    "loginTitle": "تسجيل الدخول",
+    "loginSubtitle": "أدخل بياناتك للدخول إلى حسابك",
+    "signupTitle": "إنشاء حساب جديد",
+    "signupSubtitle": "سجّل بياناتك للانضمام إلى منصة عيون النيل",
+    "otpTitle": "التحقق من البريد الإلكتروني",
+    "otpSubtitle": "أدخل رمز التحقق المرسل إلى بريدك الإلكتروني",
+    "otpCode": "رمز التحقق",
+    "verifyOtp": "تحقق من الرمز",
+    "resendOtp": "إعادة إرسال الرمز",
+    "loginCta": "تسجيل الدخول",
+    "signupCta": "إنشاء الحساب",
+    "noAccount": "ليس لديك حساب؟",
+    "hasAccount": "لديك حساب بالفعل؟",
+    "forgotPassword": "نسيت كلمة المرور؟",
+    "demoMode": "الوضع التجريبي",
+    "verifyEmailFirst": "يرجى التحقق من بريدك الإلكتروني أولاً",
+    "nationalIdAutoFill": "تم استخراج البيانات من الرقم القومي",
+    "birthDate": "تاريخ الميلاد",
+    "gender": "الجنس",
+    "male": "ذكر",
+    "female": "أنثى",
+    "step1": "البيانات الشخصية",
+    "step2": "التحقق من الهوية",
+    "errors": {
+      "invalidCredentials": "البريد الإلكتروني أو كلمة المرور غير صحيحة",
+      "emailNotVerified": "البريد الإلكتروني غير مفعّل. يرجى التحقق من بريدك.",
+      "otpInvalid": "رمز التحقق غير صحيح أو منتهي الصلاحية",
+      "signupFailed": "فشل إنشاء الحساب. حاول مرة أخرى.",
+      "profileCreateFailed": "فشل إنشاء الملف الشخصي. يرجى التواصل مع الدعم."
+    }
+  },
+  "roles": {
+    "citizen": "مواطن",
+    "technician": "فني",
+    "district_manager": "مدير القسم",
+    "governor": "المحافظ"
+  },
+  "statuses": {
+    "submitted": "مُقدَّم",
+    "approved": "مُوافَق عليه",
+    "rejected": "مرفوض",
+    "cancelled": "ملغى",
+    "assigned": "مُسنَد",
+    "in_progress": "قيد التنفيذ",
+    "resolved": "محلول",
+    "rated": "مُقيَّم",
+    "disputed": "متنازع عليه",
+    "archived": "مؤرشف"
+  },
+  "priorities": {
+    "critical": "حرج",
+    "high": "عالي",
+    "medium": "متوسط",
+    "low": "منخفض",
+    "scheduled": "مجدول"
+  },
+  "specialties": {
+    "plumber": "سباك",
+    "electrician": "كهربائي",
+    "road_maintenance": "صيانة طرق",
+    "sanitation": "نظافة",
+    "general": "عام"
+  },
+  "districts": {
+    "aswan1": "قسم أول أسوان",
+    "aswan2": "قسم ثان أسوان",
+    "markaz": "مركز أسوان",
+    "nasr": "مركز نصر"
+  },
+  "notifications": {
+    "bellTitle": "الإشعارات",
+    "markAllRead": "تعليم الكل كمقروء",
+    "empty": "لا توجد إشعارات",
+    "seeAll": "عرض الكل"
+  },
+  "landing": {
+    "heroTitle": "عيون النيل",
+    "heroSubtitle": "منصة ذكية للإبلاغ عن مشكلات البنية التحتية في أسوان ومتابعتها حتى الحل",
+    "cta": "أبلغ عن مشكلة",
+    "staffLogin": "دخول الموظفين",
+    "demo": "الوضع التجريبي",
+    "pitch1": "أبلغ عن أي مشكلة في منطقتك بسهولة وسرعة.",
+    "pitch2": "تتولى الجهات المختصة متابعة البلاغ حتى الحل الكامل.",
+    "mapPreview": "خريطة البلاغات في أسوان"
+  },
+  "demo": {
+    "title": "الوضع التجريبي",
+    "subtitle": "اختر دوراً للدخول مباشرة دون الحاجة إلى بيانات",
+    "loginAs": "الدخول كـ",
+    "loading": "جاري تسجيل الدخول..."
+  },
+  "sla": {
+    "breachedHoursAgo": "تجاوز {hours} ساعة و{mins} دقيقة",
+    "breachedMinsAgo": "تجاوز {mins} دقيقة",
+    "hoursLeft": "تبقى {hours} ساعة و{mins} دقيقة",
+    "minsLeft": "تبقى {mins} دقيقة"
+  },
+  "citizen": {},
+  "technician": {},
+  "manager": {},
+  "governor": {},
+  "errors": {
+    "generic": "حدث خطأ غير متوقع. يرجى المحاولة مرة أخرى.",
+    "unauthorized": "غير مصرح لك بالوصول إلى هذه الصفحة.",
+    "notFound": "الصفحة التي تبحث عنها غير موجودة.",
+    "network": "خطأ في الشبكة. يرجى التحقق من اتصالك بالإنترنت."
+  }
+}

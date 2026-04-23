@@ -1,0 +1,137 @@
+{
+  "common": {
+    "appName": "Oyoun El Nile",
+    "login": "Login",
+    "signup": "Sign Up",
+    "logout": "Logout",
+    "submit": "Submit",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "save": "Save",
+    "back": "Back",
+    "next": "Next",
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "requiredField": "This field is required",
+    "search": "Search",
+    "filter": "Filter",
+    "all": "All",
+    "none": "None",
+    "yes": "Yes",
+    "no": "No"
+  },
+  "auth": {
+    "email": "Email",
+    "password": "Password",
+    "fullName": "Full Name",
+    "nationalId": "National ID",
+    "phone": "Phone Number",
+    "loginTitle": "Sign In",
+    "loginSubtitle": "Enter your credentials to access your account",
+    "signupTitle": "Create Account",
+    "signupSubtitle": "Register to join the Oyoun El Nile platform",
+    "otpTitle": "Verify Your Email",
+    "otpSubtitle": "Enter the 6-digit code sent to your email",
+    "otpCode": "Verification Code",
+    "verifyOtp": "Verify Code",
+    "resendOtp": "Resend Code",
+    "loginCta": "Sign In",
+    "signupCta": "Create Account",
+    "noAccount": "Don't have an account?",
+    "hasAccount": "Already have an account?",
+    "forgotPassword": "Forgot password?",
+    "demoMode": "Demo Mode",
+    "verifyEmailFirst": "Please verify your email first",
+    "nationalIdAutoFill": "Data extracted from National ID",
+    "birthDate": "Birth Date",
+    "gender": "Gender",
+    "male": "Male",
+    "female": "Female",
+    "step1": "Personal Information",
+    "step2": "Identity Verification",
+    "errors": {
+      "invalidCredentials": "Invalid email or password",
+      "emailNotVerified": "Email not verified. Please check your inbox.",
+      "otpInvalid": "Invalid or expired verification code",
+      "signupFailed": "Sign up failed. Please try again.",
+      "profileCreateFailed": "Failed to create profile. Please contact support."
+    }
+  },
+  "roles": {
+    "citizen": "Citizen",
+    "technician": "Technician",
+    "district_manager": "District Manager",
+    "governor": "Governor"
+  },
+  "statuses": {
+    "submitted": "Submitted",
+    "approved": "Approved",
+    "rejected": "Rejected",
+    "cancelled": "Cancelled",
+    "assigned": "Assigned",
+    "in_progress": "In Progress",
+    "resolved": "Resolved",
+    "rated": "Rated",
+    "disputed": "Disputed",
+    "archived": "Archived"
+  },
+  "priorities": {
+    "critical": "Critical",
+    "high": "High",
+    "medium": "Medium",
+    "low": "Low",
+    "scheduled": "Scheduled"
+  },
+  "specialties": {
+    "plumber": "Plumber",
+    "electrician": "Electrician",
+    "road_maintenance": "Road Maintenance",
+    "sanitation": "Sanitation",
+    "general": "General"
+  },
+  "districts": {
+    "aswan1": "Aswan 1",
+    "aswan2": "Aswan 2",
+    "markaz": "Aswan Markaz",
+    "nasr": "Nasr"
+  },
+  "notifications": {
+    "bellTitle": "Notifications",
+    "markAllRead": "Mark all as read",
+    "empty": "No notifications",
+    "seeAll": "See all"
+  },
+  "landing": {
+    "heroTitle": "Oyoun El Nile",
+    "heroSubtitle": "A smart platform for reporting and tracking city infrastructure issues in Aswan",
+    "cta": "Report an Issue",
+    "staffLogin": "Staff Login",
+    "demo": "Demo Mode",
+    "pitch1": "Report any infrastructure issue in your area quickly and easily.",
+    "pitch2": "Our dedicated teams follow up until full resolution.",
+    "mapPreview": "Reports map in Aswan"
+  },
+  "demo": {
+    "title": "Demo Mode",
+    "subtitle": "Select a role to sign in instantly without credentials",
+    "loginAs": "Sign in as",
+    "loading": "Signing in..."
+  },
+  "sla": {
+    "breachedHoursAgo": "Breached {hours}h {mins}m ago",
+    "breachedMinsAgo": "Breached {mins}m ago",
+    "hoursLeft": "{hours}h {mins}m left",
+    "minsLeft": "{mins}m left"
+  },
+  "citizen": {},
+  "technician": {},
+  "manager": {},
+  "governor": {},
+  "errors": {
+    "generic": "An unexpected error occurred. Please try again.",
+    "unauthorized": "You are not authorized to access this page.",
+    "notFound": "The page you are looking for does not exist.",
+    "network": "Network error. Please check your internet connection."
+  }
+}
