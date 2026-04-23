@@ -252,9 +252,318 @@
       "locationUnavailable": "Location unavailable."
     }
   },
-  "technician": {},
-  "manager": {},
-  "governor": {},
+  "technician": {
+    "nav": {
+      "dashboard": "Dashboard",
+      "tasks": "Tasks",
+      "leave": "Leave",
+      "notifications": "Notifications"
+    },
+    "dashboard": {
+      "title": "My Tasks",
+      "subtitle": "Overview of your assigned work"
+    },
+    "kpis": {
+      "activeTasks": "Active Tasks",
+      "dueToday": "Due Today",
+      "completedThisWeek": "Completed This Week"
+    },
+    "task": {
+      "title": "Task Details",
+      "reportedBy": "Reported by",
+      "phone": "Phone",
+      "description": "Description",
+      "beforePhotos": "Before Photos",
+      "afterPhotos": "After Photos",
+      "location": "Location",
+      "openInMaps": "Open in Maps",
+      "resolutionSubmitted": "Resolution Submitted",
+      "cost": "Cost",
+      "costEgp": "Cost (EGP)",
+      "workDescription": "Work Description (Optional)",
+      "workDescriptionPlaceholder": "Describe the work performed...",
+      "maxChars": "Max 300 characters"
+    },
+    "start": {
+      "button": "Start Task",
+      "confirm": "Are you sure you want to start this task?",
+      "success": "Task started successfully",
+      "error": "Failed to start task"
+    },
+    "resolve": {
+      "button": "Submit Resolution",
+      "title": "Complete Task",
+      "uploadPhoto": "Upload After Photo",
+      "photoRequired": "One after-photo is required",
+      "costRequired": "Cost must be zero or positive",
+      "success": "Task resolved successfully",
+      "error": "Failed to resolve task"
+    },
+    "leave": {
+      "title": "Leave Requests",
+      "requestNew": "Request Leave",
+      "noRequests": "No leave requests yet",
+      "startDate": "Start Date",
+      "endDate": "End Date",
+      "reason": "Reason",
+      "reasonPlaceholder": "Explain your reason for leave...",
+      "coveredBy": "Covered by {name} — {specialty}",
+      "pending": "Pending",
+      "approved": "Approved",
+      "rejected": "Rejected"
+    },
+    "requestLeave": {
+      "success": "Leave request submitted",
+      "error": "Failed to submit leave request"
+    },
+    "cancelRequest": {
+      "button": "Cancel Request",
+      "success": "Leave request cancelled",
+      "error": "Failed to cancel leave request"
+    },
+    "urgent": {
+      "title": "Urgent Tasks",
+      "subtitle": "Tasks with less than 60 minutes remaining"
+    },
+    "breached": {
+      "title": "SLA Breached",
+      "subtitle": "These tasks have exceeded their deadline",
+      "overdueBy": "Overdue by {time}"
+    },
+    "onLeaveBanner": {
+      "title": "You are currently on leave",
+      "subtitle": "Contact your manager for any concerns"
+    },
+    "substituteBadge": {
+      "label": "Substitute Duty",
+      "tooltip": "You are currently covering for {name} until {date}"
+    },
+    "emptyState": {
+      "title": "No tasks assigned",
+      "subtitle": "Take a breather."
+    },
+    "sections": {
+      "assigned": "Assigned Tasks",
+      "inProgress": "In Progress",
+      "active": "Active Tasks"
+    }
+  },
+  "manager": {
+    "nav": {
+      "dashboard": "Dashboard",
+      "queue": "Approval Queue",
+      "reports": "Situation Room",
+      "technicians": "Technicians",
+      "leaveRequests": "Leave Requests",
+      "disputes": "Disputes",
+      "crossDistrict": "Cross-District",
+      "notifications": "Notifications",
+      "map": "Map"
+    },
+    "dashboard": {
+      "title": "District Dashboard",
+      "subtitle": "Overview of your district operations",
+      "awaitingApproval": "Awaiting Approval",
+      "needsAttention": "Needs Attention",
+      "heatmapTitle": "District Heatmap",
+      "heatmapLegend": "Report density across the district"
+    },
+    "kpis": {
+      "submitted": "Pending Approval",
+      "active": "Active Reports",
+      "completedToday": "Completed Today",
+      "escalated": "Escalated",
+      "avgResolution": "Avg Resolution (hrs)",
+      "totalSpent": "Total Spent (EGP)"
+    },
+    "queue": {
+      "title": "Approval Queue",
+      "subtitle": "Review and approve submitted reports",
+      "empty": "No reports awaiting approval",
+      "duplicateIndicator": "Possible duplicate nearby"
+    },
+    "approve": {
+      "button": "Approve",
+      "success": "Report approved successfully",
+      "error": "Failed to approve report"
+    },
+    "reject": {
+      "button": "Reject",
+      "success": "Report rejected",
+      "error": "Failed to reject report"
+    },
+    "approvalDialog": {
+      "title": "Approve Report",
+      "makePublic": "Mark as public",
+      "overrideCategory": "Override Category",
+      "overridePriority": "Override Priority",
+      "confirmApproval": "Confirm Approval"
+    },
+    "rejectDialog": {
+      "title": "Reject Report",
+      "reason": "Rejection Reason",
+      "reasonPlaceholder": "Explain why this report is being rejected...",
+      "reasonMinChars": "Minimum 5 characters required",
+      "confirmRejection": "Confirm Rejection"
+    },
+    "assign": {
+      "title": "Assign Technician",
+      "subtitle": "Select a technician for this report",
+      "success": "Technician assigned successfully",
+      "error": "Failed to assign technician",
+      "confirmMismatch": "Confirm specialty mismatch assignment"
+    },
+    "recommendedPanel": {
+      "title": "Recommended",
+      "workload": "Workload",
+      "activeTasks": "Active Tasks",
+      "assignButton": "Assign"
+    },
+    "otherTechnicians": {
+      "title": "Other Technicians",
+      "showAll": "Show all technicians"
+    },
+    "specialtyMismatch": {
+      "warning": "Specialty mismatch",
+      "detail": "This technician's specialty is {techSpecialty}, but the category requires {required}",
+      "confirmTitle": "Specialty Mismatch Warning",
+      "confirmMessage": "Are you sure you want to assign a technician with a different specialty? This will be logged for audit purposes.",
+      "confirmButton": "Assign Anyway"
+    },
+    "crossDistrictBanner": {
+      "label": "Cross-district access active",
+      "detail": "You are acting under cross-district permission valid until {time}"
+    },
+    "situationRoom": {
+      "title": "Situation Room",
+      "subtitle": "All reports in your district"
+    },
+    "filters": {
+      "status": "Status",
+      "priority": "Priority",
+      "category": "Category",
+      "technician": "Technician",
+      "dateRange": "Date Range",
+      "from": "From",
+      "to": "To",
+      "clearFilters": "Clear Filters",
+      "activeFilters": "{count} active filters"
+    },
+    "search": {
+      "placeholder": "Search by description or address..."
+    },
+    "technicians": {
+      "title": "Technicians",
+      "subtitle": "Your district's technical team",
+      "workloadBar": "Workload",
+      "activeTasks": "Active Tasks",
+      "viewTasks": "View Tasks",
+      "onLeave": "On Leave",
+      "substitute": "Substitute: {name}",
+      "daysRemaining": "{days} days remaining"
+    },
+    "workload": {
+      "score": "Score",
+      "tasks": "Tasks"
+    },
+    "leaveRequests": {
+      "title": "Leave Requests",
+      "subtitle": "Manage technician leave requests",
+      "pendingSection": "Pending Requests",
+      "recentSection": "Recent Decisions",
+      "empty": "No pending leave requests"
+    },
+    "pendingLeaves": {
+      "dateRange": "{start} to {end}",
+      "confirmApprove": "This will auto-assign a substitute for {count} active tasks currently with {name}. Continue?",
+      "noSubstitute": "Leave approved but no substitute available — tasks remain with original technician until you intervene."
+    },
+    "approveLeave": {
+      "button": "Approve Leave",
+      "success": "Leave approved. Substitute: {name}",
+      "successNoSub": "Leave approved (no substitute available)",
+      "error": "Failed to approve leave"
+    },
+    "rejectLeave": {
+      "button": "Reject Leave",
+      "success": "Leave request rejected",
+      "error": "Failed to reject leave"
+    },
+    "disputes": {
+      "title": "Disputes",
+      "subtitle": "Resolve citizen disputes",
+      "empty": "No active disputes",
+      "rating": "Rating",
+      "citizenComment": "Citizen Comment"
+    },
+    "disputeDetail": {
+      "title": "Dispute Details",
+      "originalTechnician": "Original Technician",
+      "citizenFeedback": "Citizen Feedback",
+      "beforeAfter": "Before & After Comparison"
+    },
+    "assignNew": {
+      "button": "Assign New Technician",
+      "title": "Assign a New Technician",
+      "success": "New technician assigned",
+      "error": "Failed to assign new technician"
+    },
+    "sameTechBack": {
+      "button": "Send Same Technician Back",
+      "title": "Send Back to Same Technician",
+      "notesLabel": "DM Notes",
+      "notesPlaceholder": "Add instructions for the technician...",
+      "notesMinChars": "Minimum 5 characters",
+      "success": "Task reassigned to same technician",
+      "error": "Failed to reassign"
+    },
+    "rejectDispute": {
+      "button": "Reject Dispute",
+      "title": "Reject This Dispute",
+      "warning": "This will archive the report permanently.",
+      "notesLabel": "Rejection Notes",
+      "notesPlaceholder": "Explain why this dispute is being rejected...",
+      "success": "Dispute rejected and report archived",
+      "error": "Failed to reject dispute"
+    },
+    "crossDistrict": {
+      "title": "Cross-District Access",
+      "subtitle": "Request access to operate in other districts"
+    },
+    "newRequest": {
+      "targetDistrict": "Target District",
+      "reason": "Reason",
+      "reasonPlaceholder": "Explain why cross-district access is needed...",
+      "reasonMinChars": "Minimum 20 characters required",
+      "submit": "Submit Request",
+      "success": "Cross-district request submitted",
+      "error": "Failed to submit request"
+    },
+    "revoke": {
+      "button": "Revoke",
+      "success": "Access revoked",
+      "error": "Failed to revoke access"
+    },
+    "errors": {
+      "invalidTransition": "This status transition is not allowed",
+      "districtMismatch": "Technician is not in the same district",
+      "technicianOnLeave": "This technician is currently on leave",
+      "noPermission": "You do not have permission for this action",
+      "notFound": "Record not found"
+    },
+    "reportDetail": {
+      "title": "Report Details",
+      "reporter": "Reporter",
+      "technician": "Assigned Technician",
+      "timeline": "Timeline",
+      "actions": "Actions",
+      "markPublic": "Mark Public",
+      "unmarkPublic": "Unmark Public",
+      "assignTech": "Assign Technician",
+      "reassign": "Reassign",
+      "nidLast4": "NID (last 4)"
+    }
+  },
   "errors": {
     "generic": "An unexpected error occurred. Please try again.",
     "unauthorized": "You are not authorized to access this page.",
