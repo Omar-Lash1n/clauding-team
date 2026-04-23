@@ -124,7 +124,134 @@
     "hoursLeft": "{hours}h {mins}m left",
     "minsLeft": "{mins}m left"
   },
-  "citizen": {},
+  "citizen": {
+    "nav": {
+      "dashboard": "Dashboard",
+      "reports": "My Reports",
+      "notifications": "Notifications",
+      "profile": "Profile"
+    },
+    "dashboard": {
+      "greeting": "Hello, {name}",
+      "date": "Today is {date}",
+      "reportCta": "Report an Issue",
+      "stats": {
+        "active": "Active",
+        "resolved": "Resolved",
+        "total": "Total"
+      },
+      "recentTitle": "Recent Reports",
+      "seeAll": "See all",
+      "empty": "You haven't reported anything yet"
+    },
+    "reports": {
+      "title": "My Reports"
+    },
+    "list": {
+      "filterAll": "All",
+      "filterActive": "Active",
+      "filterResolved": "Resolved",
+      "filterArchived": "Archived"
+    },
+    "wizard": {
+      "step1Title": "Choose Category",
+      "step2Title": "Details",
+      "step3Title": "Location",
+      "step4Title": "Review & Submit",
+      "categoryPrompt": "Select the type of issue",
+      "prioritySuggestion": "Suggested priority: {priority}",
+      "priorityNote": "Urgency may be adjusted by staff",
+      "descriptionLabel": "Description",
+      "descriptionHint": "Describe the issue clearly (20–500 characters)",
+      "photosLabel": "Photos",
+      "photosHint": "Add at least one before photo (max 4)",
+      "photosMandatory": "At least 1 photo is required",
+      "photosMaxReached": "Maximum photos reached",
+      "photoTooLarge": "Photo exceeds the 5MB limit",
+      "photoWrongType": "File type not supported. Use JPEG, PNG, WebP or HEIC.",
+      "useMyLocation": "Use My Location",
+      "pickOnMap": "Pick on Map",
+      "locationDenied": "Location access denied. Please pick on the map.",
+      "detectedDistrict": "Detected district: {district}",
+      "landmarkLabel": "Landmark",
+      "landmarkHint": "Nearby building or landmark (optional)",
+      "confirmTitle": "Review Your Report",
+      "submit": "Submit Report",
+      "submitting": "Submitting…",
+      "submittedToast": "Report submitted successfully!"
+    },
+    "duplicate": {
+      "title": "Similar Nearby Reports",
+      "subtitle": "Active reports of the same type were found nearby. Is your issue different?",
+      "distance": "~{n}m away",
+      "followThis": "Follow this report",
+      "continueAnyway": "This is a different issue — submit mine"
+    },
+    "detail": {
+      "statusTitle": "Report Status",
+      "timelineTitle": "Progress",
+      "photosBefore": "Before Photos",
+      "photosAfter": "After Photos",
+      "assignedTo": "Assigned to: {name}",
+      "pendingAssignment": "Pending assignment",
+      "slaRemaining": "Time remaining",
+      "slaBreached": "SLA breached",
+      "edit": "Edit Report",
+      "cancel": "Cancel Report",
+      "cancelConfirmTitle": "Cancel Report",
+      "cancelConfirm": "Are you sure you want to cancel this report? This cannot be undone.",
+      "rejectedTitle": "Report Rejected",
+      "rejectedReason": "Reason: {reason}",
+      "category": "Category",
+      "district": "District",
+      "description": "Description",
+      "location": "Location",
+      "submittedAt": "Submitted"
+    },
+    "feedback": {
+      "title": "Rate the Service",
+      "prompt": "How was your experience with the technical team?",
+      "starLabel": "{n} stars",
+      "commentLabel": "Comment (optional)",
+      "commentHint": "Add any additional notes",
+      "submit": "Submit Rating",
+      "thanks": "Thank you for your rating!"
+    },
+    "dispute": {
+      "button": "File a Dispute",
+      "confirmTitle": "File a Dispute",
+      "confirmBody": "Your dispute will be reviewed by the district manager.",
+      "confirmCta": "Submit Dispute",
+      "filed": "Dispute Filed",
+      "statusUnderReview": "Under Review",
+      "statusReassigned": "Reassigned to a new technician",
+      "statusSentBack": "Sent back to same technician",
+      "statusRejected": "Dispute Rejected"
+    },
+    "notifications": {
+      "title": "Notifications",
+      "empty": "No notifications yet",
+      "markAllRead": "Mark all as read"
+    },
+    "profile": {
+      "title": "Profile",
+      "fullName": "Full Name",
+      "email": "Email",
+      "phone": "Phone",
+      "nid": "National ID",
+      "birthdate": "Birthdate",
+      "gender": "Gender"
+    },
+    "errors": {
+      "createFailed": "Failed to create report. Please try again.",
+      "editFailed": "Failed to update report. Please try again.",
+      "cancelFailed": "Failed to cancel report. Please try again.",
+      "feedbackFailed": "Failed to submit rating. Please try again.",
+      "disputeFailed": "Failed to file dispute. Please try again.",
+      "uploadFailed": "Failed to upload photo. Please try again.",
+      "locationUnavailable": "Location unavailable."
+    }
+  },
   "technician": {},
   "manager": {},
   "governor": {},

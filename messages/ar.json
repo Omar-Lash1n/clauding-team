@@ -124,7 +124,134 @@
     "hoursLeft": "تبقى {hours} ساعة و{mins} دقيقة",
     "minsLeft": "تبقى {mins} دقيقة"
   },
-  "citizen": {},
+  "citizen": {
+    "nav": {
+      "dashboard": "لوحة التحكم",
+      "reports": "بلاغاتي",
+      "notifications": "الإشعارات",
+      "profile": "الملف الشخصي"
+    },
+    "dashboard": {
+      "greeting": "مرحباً، {name}",
+      "date": "اليوم {date}",
+      "reportCta": "أبلغ عن مشكلة",
+      "stats": {
+        "active": "نشط",
+        "resolved": "محلول",
+        "total": "الإجمالي"
+      },
+      "recentTitle": "آخر البلاغات",
+      "seeAll": "عرض الكل",
+      "empty": "لم تُقدّم أي بلاغ بعد"
+    },
+    "reports": {
+      "title": "بلاغاتي"
+    },
+    "list": {
+      "filterAll": "الكل",
+      "filterActive": "النشطة",
+      "filterResolved": "المحلولة",
+      "filterArchived": "المؤرشفة"
+    },
+    "wizard": {
+      "step1Title": "اختر الفئة",
+      "step2Title": "التفاصيل",
+      "step3Title": "الموقع",
+      "step4Title": "مراجعة وإرسال",
+      "categoryPrompt": "اختر نوع المشكلة",
+      "prioritySuggestion": "الأولوية المقترحة: {priority}",
+      "priorityNote": "يمكن تعديل مستوى الأولوية من قِبل الموظفين",
+      "descriptionLabel": "الوصف",
+      "descriptionHint": "صف المشكلة بوضوح (20–500 حرف)",
+      "photosLabel": "الصور",
+      "photosHint": "أضف صورة واحدة على الأقل قبل الإصلاح (الحد الأقصى 4)",
+      "photosMandatory": "صورة واحدة مطلوبة على الأقل",
+      "photosMaxReached": "وصلت للحد الأقصى من الصور",
+      "photoTooLarge": "حجم الصورة يتجاوز 5 ميغابايت",
+      "photoWrongType": "نوع الملف غير مدعوم. استخدم JPEG أو PNG أو WebP أو HEIC.",
+      "useMyLocation": "استخدم موقعي",
+      "pickOnMap": "اختر على الخريطة",
+      "locationDenied": "تم رفض الوصول إلى الموقع. يرجى تحديد الموقع على الخريطة.",
+      "detectedDistrict": "القسم المكتشف: {district}",
+      "landmarkLabel": "علامة مرجعية",
+      "landmarkHint": "مبنى أو معلم قريب (اختياري)",
+      "confirmTitle": "مراجعة البلاغ",
+      "submit": "أرسل البلاغ",
+      "submitting": "جارٍ الإرسال…",
+      "submittedToast": "تم إرسال بلاغك بنجاح!"
+    },
+    "duplicate": {
+      "title": "بلاغات مشابهة قريبة",
+      "subtitle": "وُجدت بلاغات نشطة قريبة لنفس الفئة. هل مشكلتك مختلفة؟",
+      "distance": "على بُعد ~{n}م",
+      "followThis": "تابع هذا البلاغ",
+      "continueAnyway": "مشكلتي مختلفة — أرسل بلاغي"
+    },
+    "detail": {
+      "statusTitle": "حالة البلاغ",
+      "timelineTitle": "مراحل التنفيذ",
+      "photosBefore": "صور قبل الإصلاح",
+      "photosAfter": "صور بعد الإصلاح",
+      "assignedTo": "مسنَد إلى: {name}",
+      "pendingAssignment": "في انتظار التسنيد",
+      "slaRemaining": "الوقت المتبقي",
+      "slaBreached": "تجاوز الميعاد",
+      "edit": "تعديل البلاغ",
+      "cancel": "إلغاء البلاغ",
+      "cancelConfirmTitle": "إلغاء البلاغ",
+      "cancelConfirm": "هل أنت متأكد من إلغاء البلاغ؟ لا يمكن التراجع عن هذا الإجراء.",
+      "rejectedTitle": "تم رفض البلاغ",
+      "rejectedReason": "السبب: {reason}",
+      "category": "الفئة",
+      "district": "القسم",
+      "description": "الوصف",
+      "location": "الموقع",
+      "submittedAt": "تاريخ التقديم"
+    },
+    "feedback": {
+      "title": "قيّم الخدمة",
+      "prompt": "كيف كانت تجربتك مع الفريق الفني؟",
+      "starLabel": "{n} نجوم",
+      "commentLabel": "تعليق (اختياري)",
+      "commentHint": "أضف أي ملاحظات إضافية",
+      "submit": "إرسال التقييم",
+      "thanks": "شكراً على تقييمك!"
+    },
+    "dispute": {
+      "button": "تقديم اعتراض",
+      "confirmTitle": "تقديم اعتراض",
+      "confirmBody": "سيتم مراجعة اعتراضك من قِبل مدير القسم.",
+      "confirmCta": "قدّم الاعتراض",
+      "filed": "تم تقديم الاعتراض",
+      "statusUnderReview": "قيد المراجعة",
+      "statusReassigned": "تم إعادة التسنيد لفني جديد",
+      "statusSentBack": "أُعيد إلى الفني نفسه",
+      "statusRejected": "رُفض الاعتراض"
+    },
+    "notifications": {
+      "title": "الإشعارات",
+      "empty": "لا توجد إشعارات",
+      "markAllRead": "تعليم الكل كمقروء"
+    },
+    "profile": {
+      "title": "الملف الشخصي",
+      "fullName": "الاسم الكامل",
+      "email": "البريد الإلكتروني",
+      "phone": "رقم الهاتف",
+      "nid": "الرقم القومي",
+      "birthdate": "تاريخ الميلاد",
+      "gender": "الجنس"
+    },
+    "errors": {
+      "createFailed": "فشل إنشاء البلاغ. يرجى المحاولة مرة أخرى.",
+      "editFailed": "فشل تعديل البلاغ. يرجى المحاولة مرة أخرى.",
+      "cancelFailed": "فشل إلغاء البلاغ. يرجى المحاولة مرة أخرى.",
+      "feedbackFailed": "فشل إرسال التقييم. يرجى المحاولة مرة أخرى.",
+      "disputeFailed": "فشل تقديم الاعتراض. يرجى المحاولة مرة أخرى.",
+      "uploadFailed": "فشل رفع الصورة. يرجى المحاولة مرة أخرى.",
+      "locationUnavailable": "الموقع الجغرافي غير متاح."
+    }
+  },
   "technician": {},
   "manager": {},
   "governor": {},
